@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.28010.2046
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "树形结构遍历", "树形结构遍历\树形结构遍历.vcxproj", "{7337AB23-74AB-4374-B758-1D320082553E}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CppRandom", "CppRandom\CppRandom.vcxproj", "{5B393998-6909-4131-9C66-379FB968DB24}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,6 +23,14 @@ Global
 		{7337AB23-74AB-4374-B758-1D320082553E}.Release|x64.Build.0 = Release|x64
 		{7337AB23-74AB-4374-B758-1D320082553E}.Release|x86.ActiveCfg = Release|Win32
 		{7337AB23-74AB-4374-B758-1D320082553E}.Release|x86.Build.0 = Release|Win32
+		{5B393998-6909-4131-9C66-379FB968DB24}.Debug|x64.ActiveCfg = Debug|x64
+		{5B393998-6909-4131-9C66-379FB968DB24}.Debug|x64.Build.0 = Debug|x64
+		{5B393998-6909-4131-9C66-379FB968DB24}.Debug|x86.ActiveCfg = Debug|Win32
+		{5B393998-6909-4131-9C66-379FB968DB24}.Debug|x86.Build.0 = Debug|Win32
+		{5B393998-6909-4131-9C66-379FB968DB24}.Release|x64.ActiveCfg = Release|x64
+		{5B393998-6909-4131-9C66-379FB968DB24}.Release|x64.Build.0 = Release|x64
+		{5B393998-6909-4131-9C66-379FB968DB24}.Release|x86.ActiveCfg = Release|Win32
+		{5B393998-6909-4131-9C66-379FB968DB24}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
