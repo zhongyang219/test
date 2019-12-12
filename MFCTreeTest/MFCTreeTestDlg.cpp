@@ -66,6 +66,7 @@ BEGIN_MESSAGE_MAP(CMFCTreeTestDlg, CDialog)
 	ON_WM_SYSCOMMAND()
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
+    ON_NOTIFY(NM_RCLICK, IDC_TREE1, &CMFCTreeTestDlg::OnNMRClickTree1)
 END_MESSAGE_MAP()
 
 
@@ -112,8 +113,8 @@ BOOL CMFCTreeTestDlg::OnInitDialog()
     HTREEITEM hChild1_1 = m_tree_ctrl.InsertItem(_T("子节点1_1"), hRoot1);
     HTREEITEM hChild1_2 = m_tree_ctrl.InsertItem(_T("子节点1_2"), hRoot1);
 
-    CCommon::InsertPath(_T("D:\\Music"), NULL, m_tree_ctrl);
-    CCommon::InsertPath(_T("D:\\Temp"), NULL, m_tree_ctrl);
+    m_tree_ctrl.InsertPath(_T("D:\\Music"), NULL);
+    m_tree_ctrl.InsertPath(_T("D:\\Temp"), NULL);
 
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
@@ -168,3 +169,29 @@ HCURSOR CMFCTreeTestDlg::OnQueryDragIcon()
 	return static_cast<HCURSOR>(m_hIcon);
 }
 
+
+
+void CMFCTreeTestDlg::OnNMRClickTree1(NMHDR *pNMHDR, LRESULT *pResult)
+{
+    // TODO: 在此添加控件通知处理程序代码
+    if(pNMHDR->hwndFrom == m_tree_ctrl.GetSafeHwnd())
+    {
+        CPoint point(GetMessagePos());
+        unsigned int nFlags = 0;
+        m_tree_ctrl.ScreenToClient(&point);
+        HTREEITEM hItem = m_tree_ctrl.HitTest(point, &nFlags);
+        CString path = m_tree_ctrl.GetItemPath(hItem);
+
+        m_tree_ctrl.SetFocus();
+        m_tree_ctrl.SelectItem(hItem);
+        if ((nFlags& TVHT_ONITEM || nFlags & TVHT_ONITEMRIGHT || nFlags & TVHT_ONITEMINDENT) && (hItem != NULL))
+        {
+            CMenu MyMenu;
+            MyMenu.LoadMenu(IDR_MENU1);//加载菜单资源
+            CMenu* popup = MyMenu.GetSubMenu(0);
+            GetCursorPos(&point);//获取当前光标的位置，以便使得菜单可以跟随光标这里也可以用m_tree.ClientToScreen(&point);
+            popup->TrackPopupMenu(TPM_LEFTBUTTON | TPM_LEFTALIGN, point.x, point.y, this);
+        }
+    }
+    *pResult = 0;
+}

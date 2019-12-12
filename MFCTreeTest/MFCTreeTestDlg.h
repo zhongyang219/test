@@ -3,6 +3,7 @@
 //
 
 #pragma once
+#include "TreeCtrlEx.h"
 
 
 // CMFCTreeTestDlg 对话框
@@ -32,5 +33,6 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	DECLARE_MESSAGE_MAP()
 public:
-    CTreeCtrl m_tree_ctrl;
+    CTreeCtrlEx m_tree_ctrl;
+    afx_msg void OnNMRClickTree1(NMHDR *pNMHDR, LRESULT *pResult);
 };

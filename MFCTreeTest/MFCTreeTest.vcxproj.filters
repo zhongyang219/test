@@ -16,6 +16,9 @@
     <Filter Include="Common">
       <UniqueIdentifier>{bde4c4f6-ea76-406d-bed8-3695d91ac499}</UniqueIdentifier>
     </Filter>
+    <Filter Include="TreeCtrlEx">
+      <UniqueIdentifier>{53fb1b70-13d5-4aa7-a62f-0035ef6f87aa}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MFCTreeTest.h">
@@ -36,6 +39,9 @@
     <ClInclude Include="Common.h">
       <Filter>Common</Filter>
     </ClInclude>
+    <ClInclude Include="TreeCtrlEx.h">
+      <Filter>TreeCtrlEx</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="MFCTreeTest.cpp">
@@ -49,6 +55,9 @@
     </ClCompile>
     <ClCompile Include="Common.cpp">
       <Filter>Common</Filter>
+    </ClCompile>
+    <ClCompile Include="TreeCtrlEx.cpp">
+      <Filter>TreeCtrlEx</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
