@@ -103,9 +103,25 @@ BOOL CMFCTreeTestDlg::OnInitDialog()
 
 	// TODO: 在此添加额外的初始化代码
 
+    CImageList m_img;
+    m_img.Create(GetSystemMetrics(SM_CXSMICON),
+        GetSystemMetrics(SM_CYSMICON),
+        ILC_COLOR24, 50, 50);
+    m_img.SetBkColor(GetSysColor(COLOR_WINDOW));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 6));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 3));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 4));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 8));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 11));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 9));
+    //m_img.Add(ExtractIcon(AfxGetApp()->m_hInstance, L"shell32.dll", 15));
+    m_img.Add(m_hIcon);
+    m_tree_ctrl.SetImageList(&m_img, TVSIL_NORMAL);
+
+
     //初始化树控件
-    HTREEITEM hRoot = m_tree_ctrl.InsertItem(_T("根节点"));
-    HTREEITEM hChild1 = m_tree_ctrl.InsertItem(_T("子节点1"), hRoot);
+    HTREEITEM hRoot = m_tree_ctrl.InsertItem(_T("根节点"), 0,0);
+    HTREEITEM hChild1 = m_tree_ctrl.InsertItem(_T("子节点1"),0,0, hRoot);
     HTREEITEM hChild2 = m_tree_ctrl.InsertItem(_T("子节点2"), hRoot);
     HTREEITEM hChild3 = m_tree_ctrl.InsertItem(_T("子节点3"), hRoot);
 
@@ -115,7 +131,6 @@ BOOL CMFCTreeTestDlg::OnInitDialog()
 
     m_tree_ctrl.InsertPath(_T("D:\\Music"), NULL);
     m_tree_ctrl.InsertPath(_T("D:\\Temp"), NULL);
-
 
 	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
